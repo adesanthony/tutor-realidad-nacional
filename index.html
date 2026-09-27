@@ -3,28 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="assets/logo-uta.png">
 <meta name="description" content="Tutor de estudio con IA para Realidad Nacional, Medicina 3.er nivel, UTA.">
 <title>Tutor de Realidad Nacional</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 :root{
-  --ground:#F1F5F4; --surface:#FFFFFF; --surface-2:#E6EEEC; --ink:#12262A; --muted:#566B6E; --line:#CFDCDA;
-  --accent:#0B6F6B; --accent-ink:#FFFFFF; --accent-soft:#D6ECEA; --ochre:#B5760F; --ochre-soft:#F6E7C8;
-  --ok:#23794A; --ok-soft:#DDF0E4; --bad:#B23B2E; --bad-soft:#F7DEDA;
+  --ground:#FFFFFF; --surface:#FFFFFF; --surface-2:#FFFFFF; --ink:#231A1B; --muted:#5F6368; --line:#E8E1E1;
+  --accent:#C8102E; --accent-ink:#FFFFFF; --accent-soft:#FDECEF; --ochre:#8D0809; --ochre-soft:#FBEDEC;
+  --navy:#282165; --teal:#016C9A;
+  --ok:#23794A; --ok-soft:#E3F3E9; --bad:#B23B2E; --bad-soft:#FBE7E4;
   --serif:"Literata",Georgia,"Times New Roman",serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --r:10px;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  color-scheme:dark; --ground:#0D1618; --surface:#142124; --surface-2:#1B2C30; --ink:#E2ECEA; --muted:#93A8A9; --line:#29403F;
-  --accent:#3DB8AF; --accent-ink:#06201F; --accent-soft:#16383A; --ochre:#E2AE52; --ochre-soft:#3A2E17;
-  --ok:#5CC98A; --ok-soft:#173526; --bad:#EE8577; --bad-soft:#3E1F1B;}}
-:root[data-theme="dark"]{
-  color-scheme:dark; --ground:#0D1618; --surface:#142124; --surface-2:#1B2C30; --ink:#E2ECEA; --muted:#93A8A9; --line:#29403F;
-  --accent:#3DB8AF; --accent-ink:#06201F; --accent-soft:#16383A; --ochre:#E2AE52; --ochre-soft:#3A2E17;
-  --ok:#5CC98A; --ok-soft:#173526; --bad:#EE8577; --bad-soft:#3E1F1B;}
 *{box-sizing:border-box}
-html{color-scheme:light}
+.uta-band{height:5px;background:linear-gradient(90deg,#8D0809 0 50%,#DE1130 50% 100%);border-radius:0 0 4px 4px}
+header.top{display:grid!important;grid-template-columns:auto 1fr auto;align-items:center;gap:24px!important}
+.logo{height:96px;width:auto;display:block}
+.logo.med{height:108px}
+.htext{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.htext .sub{margin-inline:auto}
+@media (max-width:640px){header.top{grid-template-columns:1fr 1fr;gap:14px!important}.htext{grid-column:1/-1;grid-row:2}.logo{height:68px}.logo.med{height:76px;justify-self:end}}
+header.top h1{color:var(--accent)}
+nav.tabs button[aria-selected="true"]{background:var(--accent)!important;color:var(--accent-ink)!important}
+.concept{border-top-color:var(--accent)}
+.ra .mono{color:var(--teal)}
+.chain .node{background:var(--accent-soft)}
+.pyramid div{background:var(--navy);color:#fff}
+.msg.user{background:var(--navy);color:#fff}
+.msg.bot .who{color:var(--accent)}
+html{color-scheme:light;background:#FFFFFF}
 body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
@@ -32,7 +41,7 @@ img{max-width:100%}
 .keybox input{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--ground);width:100%}
 .keybox a{color:var(--accent);font-weight:600}
 .pill{cursor:pointer}
-body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
+body{background:#FFFFFF;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
 .wrap{max-width:1120px;margin:0 auto}
 h1,h2,h3{font-family:var(--serif);font-weight:650;text-wrap:balance;margin:0;line-height:1.2}
 p{margin:0}
@@ -43,7 +52,7 @@ button{cursor:pointer}
 .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
 /* header */
-header.top{padding-block:28px 18px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--line)}
+header.top{padding-block:22px 18px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--line)}
 header.top h1{font-size:clamp(28px,4.4vw,40px);letter-spacing:-.01em}
 header.top .sub{color:var(--muted);max-width:60ch;margin-top:6px}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
@@ -66,12 +75,12 @@ nav.tabs button:hover:not([aria-selected="true"]){background:var(--surface-2);co
 
 /* tutor */
 .tutor{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start}
-@media (max-width:860px){.tutor{grid-template-columns:1fr}.tutor aside{order:-1}}
-.chat{background:var(--surface);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;min-height:520px}
+@media (max-width:860px){.tutor{grid-template-columns:minmax(0,1fr)}.tutor aside{order:-1}}
+.chat{background:var(--surface);box-shadow:0 1px 3px rgba(35,26,27,.06);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;min-height:520px}
 .msgs{flex:1;padding:18px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;max-height:62vh}
 .msg{max-width:88%;padding:12px 14px;border-radius:12px;line-height:1.6}
 .msg.user{align-self:flex-end;background:var(--ink);color:var(--ground);border-bottom-right-radius:4px;white-space:pre-wrap}
-.msg.bot{align-self:flex-start;background:var(--surface-2);border-bottom-left-radius:4px}
+.msg.bot{align-self:flex-start;background:var(--surface-2);border:1px solid var(--line);border-bottom-left-radius:4px}
 .msg.bot .who{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .msg.note{align-self:center;background:var(--ochre-soft);color:var(--ink);font-size:13.5px;max-width:100%}
 .md p+p,.md p+ul,.md ul+p,.md p+ol,.md ol+p,.md h4+p,.md p+h4,.md ul+h4,.md ol+h4{margin-top:8px}
@@ -83,7 +92,7 @@ nav.tabs button:hover:not([aria-selected="true"]){background:var(--surface-2);co
 .composer textarea{flex:1;resize:none;min-height:46px;max-height:160px;border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:var(--ground)}
 .composer textarea:focus{outline:none;border-color:var(--accent)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:13px;text-align:left}
+.chip{max-width:100%;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:13px;text-align:left}
 .chip:hover{border-color:var(--accent);color:var(--accent)}
 aside .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:16px}
 .field{display:flex;flex-direction:column;gap:6px}
@@ -176,18 +185,33 @@ tr:last-child td{border-bottom:0}
 .fc .tap{margin-top:auto;font-size:12px;color:var(--muted)}
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.concept,.card,.qlist li,.fc,.opt,.seg button,.why,.msg.bot,.subtabs button,.ra{border:1px solid var(--line)}
+.concept{border-top:2px solid var(--accent)}
+nav.tabs{background:#FFFFFF}
+
+/* cuadros de texto con tinte UTA */
+.concept,.card,.qlist li,.ra,.fc,.practice{background:#FCEFF1!important;border-color:#F2D2D8!important}
+.concept{border-top:2px solid var(--accent)!important}
+.concept p,.card p,.ra p{color:#4A3F41}
+.practice textarea{background:#FFFFFF}
+.fc[aria-pressed="true"]{background:#F9DDE2!important;border-color:var(--accent)!important}
+.qlist li .btn{background:#FFFFFF}
 </style>
 </head>
 <body>
 
 <div class="wrap">
+  <div class="uta-band" aria-hidden="true"></div>
   <header class="top">
-    <div>
-      <div class="eyebrow">UTA · Facultad de Ciencias de la Salud · Medicina · 3.<sup>er</sup> nivel · Julio–Diciembre 2026</div>
+    <img class="logo uta" src="assets/logo-uta.png" alt="Universidad Técnica de Ambato">
+    <div class="htext">
+      <div class="eyebrow">Facultad de Ciencias de la Salud · Carrera de Medicina · 3.<sup>er</sup> nivel · Julio–Diciembre 2026</div>
       <h1>Realidad Nacional</h1>
-      <p class="sub">Tutor de estudio sobre determinantes sociales, orden mundial, salud integral y el Sistema Nacional de Salud del Ecuador. Incluye los contenidos de las semanas 1 a 4 y las guías PAE 1 a 4.</p>
+      <p class="sub">Tutor de estudio sobre determinantes sociales, orden mundial, salud integral y el Sistema Nacional de Salud del Ecuador.</p>
+      <button type="button" class="pill" id="aiPill"><span class="dot"></span><span id="aiPillTxt">Conectando tutor IA…</span></button>
     </div>
-    <button type="button" class="pill" id="aiPill"><span class="dot"></span><span id="aiPillTxt">Conectando tutor IA…</span></button>
+    <img class="logo med" src="assets/logo-medicina.jpg" alt="Carrera de Medicina, Facultad de Ciencias de la Salud, UTA">
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Secciones">

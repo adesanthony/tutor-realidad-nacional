@@ -15,7 +15,7 @@ Es un solo archivo (`index.html`), sin servidor ni base de datos.
 ## Publicar en GitHub Pages (docente)
 
 1. Inicie sesión en [github.com](https://github.com) y cree un repositorio nuevo, **público**, por ejemplo `tutor-realidad-nacional`.
-2. En el repositorio, pulse **Add file → Upload files**, arrastre `index.html`, `README.md` y `.nojekyll`, y pulse **Commit changes**.
+2. En el repositorio, pulse **Add file → Upload files**, arrastre `index.html`, `README.md`, `.nojekyll` y la carpeta `assets`, y pulse **Commit changes**.
 3. Vaya a **Settings → Pages**. En **Source** elija **Deploy from a branch**, rama `main`, carpeta `/ (root)`, y pulse **Save**.
 4. Espere 1 a 2 minutos. La URL quedará así: `https://SU-USUARIO.github.io/tutor-realidad-nacional/`
 5. Comparta esa URL en el aula virtual.
@@ -36,4 +36,5 @@ La clave se guarda solo en el navegador del estudiante y se envía únicamente a
 
 - El tutor está instruido para no redactar informes completos: orienta, hace preguntas y da retroalimentación.
 - Las cifras y artículos de ley deben verificarse en fuentes oficiales (INEC, MSP, OPS/OMS, Constitución 2008, MAIS-FCI).
+- Los logos están en la carpeta `assets/`; súbala junto con `index.html`.
 - Si la página se abre dentro de claude.ai, usa automáticamente Claude en lugar de Gemini.
